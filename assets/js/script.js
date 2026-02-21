@@ -245,9 +245,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <h4 class="text-sm lg:text-2xl font-black text-slate-900 mb-1 uppercase tracking-tighter truncate pr-4 lg:pr-8">${cat.name}</h4>
-                <div class="flex justify-between items-center border-b border-slate-50 pb-2 lg:pb-4 mb-4 lg:mb-6">
-                    <p class="text-[7px] lg:text-[10px] font-bold text-slate-400 uppercase tracking-widest">Limit: ${formatIDR(cat.budget)}</p>
-                    <p class="text-[7px] lg:text-[10px] font-black ${remainingCat < 0 ? 'text-red-500' : 'text-green-500'} uppercase tracking-widest">Sisa: ${formatIDR(remainingCat)}</p>
+                <div class="flex flex-wrap gap-2 border-b border-slate-50 pb-2 lg:pb-4 mb-4 lg:mb-6">
+                    <div class="px-2 lg:px-3 py-1 bg-slate-100 rounded-lg lg:rounded-xl border border-slate-200/50">
+                         <p class="text-[6px] lg:text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-0.5">Limit</p>
+                         <p class="text-[8px] lg:text-[11px] font-black text-slate-700 tracking-tight leading-none">${formatIDR(cat.budget)}</p>
+                    </div>
+                    <div class="px-2 lg:px-3 py-1 ${remainingCat < 0 ? 'bg-red-50 border-red-100' : 'bg-green-50 border-green-100'} rounded-lg lg:rounded-xl border">
+                         <p class="text-[6px] lg:text-[8px] font-black ${remainingCat < 0 ? 'text-red-400' : 'text-green-400'} uppercase tracking-widest leading-none mb-0.5">Sisa</p>
+                         <p class="text-[8px] lg:text-[11px] font-black ${remainingCat < 0 ? 'text-red-600' : 'text-green-600'} tracking-tight leading-none">${formatIDR(remainingCat)}</p>
+                    </div>
                 </div>
                 
                 <div class="flex justify-between items-end mb-2 lg:mb-3">
