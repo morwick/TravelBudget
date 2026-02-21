@@ -226,33 +226,33 @@ document.addEventListener('DOMContentLoaded', () => {
             const isOver = used > cat.budget;
 
             const card = document.createElement('div');
-            card.className = "bg-white p-10 rounded-[3rem] premium-shadow border border-slate-100 relative overflow-hidden group animate-scale-in";
+            card.className = "bg-white p-5 lg:p-10 rounded-2xl lg:rounded-[3rem] premium-shadow border border-slate-100 relative overflow-hidden group animate-scale-in";
             card.innerHTML = `
-                <div class="absolute -right-6 -top-6 text-blue-50/50 opacity-10 group-hover:scale-110 transition-transform">
-                    <i data-lucide="${cat.icon || 'tag'}" class="w-32 h-32"></i>
+                <div class="absolute -right-4 -top-4 lg:-right-6 lg:-top-6 text-blue-50/50 opacity-10 group-hover:scale-110 transition-transform">
+                    <i data-lucide="${cat.icon || 'tag'}" class="w-20 h-20 lg:w-32 lg:h-32"></i>
                 </div>
-                <div class="flex justify-between items-start mb-8 relative z-10">
-                    <div class="p-4 bg-slate-50 text-blue-600 rounded-2xl border border-slate-100">
-                        <i data-lucide="${cat.icon || 'tag'}" class="w-6 h-6"></i>
+                <div class="flex justify-between items-start mb-4 lg:mb-8 relative z-10">
+                    <div class="p-2 lg:p-4 bg-slate-50 text-blue-600 rounded-lg lg:rounded-2xl border border-slate-100">
+                        <i data-lucide="${cat.icon || 'tag'}" class="w-4 h-4 lg:w-6 lg:h-6"></i>
                     </div>
                     <div class="admin-only ${isAdmin ? '' : 'hidden'} flex gap-1">
-                        <button class="btn-edit-cat p-2 text-slate-300 hover:text-blue-600 transition hover:bg-slate-50 rounded-xl" data-id="${cat.id}">
-                            <i data-lucide="edit-3" class="w-5 h-5"></i>
+                        <button class="btn-edit-cat p-1 lg:p-2 text-slate-300 hover:text-blue-600 transition hover:bg-slate-50 rounded-lg lg:rounded-xl" data-id="${cat.id}">
+                            <i data-lucide="edit-3" class="w-4 h-4 lg:w-5 lg:h-5"></i>
                         </button>
-                        <button class="btn-delete-cat p-2 text-slate-300 hover:text-red-500 transition hover:bg-red-50 rounded-xl" data-id="${cat.id}">
-                            <i data-lucide="trash-2" class="w-5 h-5"></i>
+                        <button class="btn-delete-cat p-1 lg:p-2 text-slate-300 hover:text-red-500 transition hover:bg-red-50 rounded-lg lg:rounded-xl" data-id="${cat.id}">
+                            <i data-lucide="trash-2" class="w-4 h-4 lg:w-5 lg:h-5"></i>
                         </button>
                     </div>
                 </div>
-                <h4 class="text-2xl font-black text-slate-900 mb-1 uppercase tracking-tighter">${cat.name}</h4>
-                <div class="flex justify-between items-center border-b border-slate-50 pb-4 mb-6">
-                    <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Limit: ${formatIDR(cat.budget)}</p>
-                    <p class="text-[9px] font-black ${remainingCat < 0 ? 'text-red-500' : 'text-green-500'} uppercase tracking-widest">Sisa: ${formatIDR(remainingCat)}</p>
+                <h4 class="text-sm lg:text-2xl font-black text-slate-900 mb-1 uppercase tracking-tighter truncate pr-4 lg:pr-8">${cat.name}</h4>
+                <div class="flex justify-between items-center border-b border-slate-50 pb-2 lg:pb-4 mb-4 lg:mb-6">
+                    <p class="text-[7px] lg:text-[10px] font-bold text-slate-400 uppercase tracking-widest">Limit: ${formatIDR(cat.budget)}</p>
+                    <p class="text-[7px] lg:text-[10px] font-black ${remainingCat < 0 ? 'text-red-500' : 'text-green-500'} uppercase tracking-widest">Sisa: ${formatIDR(remainingCat)}</p>
                 </div>
                 
-                <div class="flex justify-between items-end mb-3">
-                    <p class="text-3xl font-black ${isOver ? 'text-red-600' : 'text-slate-800'} tracking-tighter">${formatIDR(used)}</p>
-                    <p class="text-[10px] font-black ${isOver ? 'text-red-500' : 'text-slate-400'}">${Math.round(percent)}%</p>
+                <div class="flex justify-between items-end mb-2 lg:mb-3">
+                    <p class="text-lg lg:text-3xl font-black ${isOver ? 'text-red-600' : 'text-slate-800'} tracking-tighter">${formatIDR(used)}</p>
+                    <p class="text-[8px] lg:text-[10px] font-black ${isOver ? 'text-red-500' : 'text-slate-400'}">${Math.round(percent)}%</p>
                 </div>
                 <div class="w-full bg-slate-50 h-3 rounded-full overflow-hidden p-1 border border-slate-100">
                     <div class="${isOver ? 'prog-red' : 'prog-blue'} h-full rounded-full transition-all duration-1000" style="width: ${Math.min(percent, 100)}%"></div>
