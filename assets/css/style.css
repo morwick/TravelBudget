@@ -1,0 +1,160 @@
+/*
+ * TravelBudget - Premium UI Design Tokens
+ */
+
+:root {
+    --primary: 221 83% 53%;
+    /* Blue 600 */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 262 83% 58%;
+    /* Indigo 600 */
+    --accent: 142 71% 45%;
+    /* Green 600 */
+    --background: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+    --radius: 1.5rem;
+}
+
+/* Base Styles */
+body {
+    background-color: hsl(var(--background));
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Premium Shadows */
+.card-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 10px 15px -3px rgba(0, 0, 0, 0.03);
+}
+
+.premium-shadow {
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+}
+
+/* Glassmorphism */
+.glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Animations */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-slide-up {
+    animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.page-view {
+    display: none;
+}
+
+.page-view.active {
+    display: block;
+    animation: slideUp 0.5s ease-out;
+}
+
+/* Custom Components */
+.nav-btn {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 20%;
+    right: 20%;
+    height: 3px;
+    background: hsl(var(--primary));
+    border-radius: 99px;
+    animation: scaleIn 0.3s ease;
+}
+
+/* Table Enhancements */
+.table-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 99px;
+}
+
+/* Form Styles */
+input,
+select {
+    transition: all 0.2s ease;
+    border: 1px solid hsl(var(--border));
+}
+
+input:focus,
+select:focus {
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 4px hsla(var(--primary), 0.1);
+}
+
+/* Responsive Utilities */
+@media (max-width: 640px) {
+    :root {
+        --radius: 1rem;
+    }
+
+    .card-p {
+        padding: 1.5rem;
+    }
+}
+
+/* Custom Chart/Progress Colors */
+.prog-orange {
+    background: linear-gradient(to right, #f97316, #fb923c);
+}
+
+.prog-blue {
+    background: linear-gradient(to right, #3b82f6, #60a5fa);
+}
+
+.prog-green {
+    background: linear-gradient(to right, #22c55e, #4ade80);
+}
+
+.prog-purple {
+    background: linear-gradient(to right, #a855f7, #c084fc);
+}
+
+.prog-red {
+    background: linear-gradient(to right, #ef4444, #f87171);
+}
